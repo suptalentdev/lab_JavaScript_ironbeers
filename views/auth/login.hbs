@@ -1,0 +1,37 @@
+{{!-- views/auth/login.hbs --}}
+
+<div id="form">
+  <h2>Login</h2>
+
+  <form action="/auth/login" method="POST">
+
+    <label> Email
+      <input type="email" name="email" placeholder="schwarzfahrer@bordbistro.db" />
+    </label>
+
+    <label>Password
+      <input type="password" name="password" placeholder="keep your password save!" />
+    </label>
+    
+  <input type="checkbox" onclick="Toggle()"/>
+  <b>Show Password</b>
+ <b><p>Click on the checkbox to show or hide password: </p></b>
+  <script>
+    // Change the type of input to password or text 
+    function Toggle() { var temp
+    = document.getElementById("typepass"); if (temp.type === "password") {
+    temp.type = "text"; } else { temp.type = "password"; } }
+  </script>
+
+  <button type="submit" value="Login" >Let me in!</button>
+         
+
+  <p>No account yet? No problem! Go here to <a href="/auth/signup">signup</a> and find a groupp or found one on your own 👥🚋</p>
+
+    {{#if errorMessage}} 
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+   <br><br><p>Otherwise, register an account!</p>
+    <button type="submit"><a href="/auth/signup">Signup!</a></button>
+</div>
